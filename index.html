@@ -34,7 +34,12 @@
 		{
 			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
 
-			if(character_counter == words[word_counter].length)
+			if (words[word_counter][character_counter] === " "){ //checks for the current character being a space
+				character_counter++;															//if a space is found enters HTML space tag
+				el.innerHTML = el.innerHTML+"&nbsp";							//it seems choppy but the cursor does move
+			}
+
+			if(character_counter == words[word_counter].length+1) //the .length didn't account for the last character
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
